@@ -5,7 +5,7 @@
 `$ npm install -g ionic@beta`<br>
 To run your app, cd into the directory that was created and then run the ionic serve command:
 
-`$ cd ionicdemo`
+`$ cd ionicdemo`<br>
 `$ ionic serve`
 ##Building to a Device
 
