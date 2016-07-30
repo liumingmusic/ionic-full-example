@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start fab-left>
+      <button menuToggle>
+        <ion-icon name='menu'></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>动态</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding class="home">
+  <ion-card *ngFor="let item of list">
+    <img src="{{item.img}}" (click)="goDescription(item)"/>
+    <ion-card-content>
+      <ion-card-title>{{item.title}}</ion-card-title>
+      <p>{{item.desc}} </p>
+      <ion-row>
+        <ion-col width-33><button clear small><ion-icon name="thumbs-up"></ion-icon>{{item.start}}赞</button></ion-col>
+        <ion-col width-33><button clear small><ion-icon name="play"></ion-icon>播放</button></ion-col>
+        <ion-col width-33><button clear small><ion-icon name="share-alt"></ion-icon>分享</button></ion-col>
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      用户中心
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item class="alignCenter">
+      <img src="{{user.imageFace}}" class="person-img"/>
+    </ion-item>
+    <div padding>
+      <button block (click)="doExit()">注销</button>
+    </div>
+  </ion-list>
+
+</ion-content>
