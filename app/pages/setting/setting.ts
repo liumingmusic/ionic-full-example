@@ -1,33 +1,59 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavController} from 'ionic-angular';
 import {Http} from '@angular/http';
+import {BaiduMap, OfflineOptions, ControlAnchor, NavigationControlType} from 'angular2-baidu-map';
 
 @Component({
-  templateUrl: 'build/pages/setting/setting.html'
+    templateUrl: 'build/pages/setting/setting.html',
+    directives: [BaiduMap]
 })
-export class SettingPage {
+export class SettingPage implements OnInit{
 
-  public map = {
-    face: null
-  };
+  opts: any;
+  offlineOpts: OfflineOptions;
 
   constructor(private navController:NavController, private http:Http) {
     this.http = http;
-    //初始化方法
-    this.getMap();
   }
 
-  getMap() {
-    let w = window.innerWidth;
-    let h = window.innerHeight;
-    this.map.face =
-      "http://restapi.amap.com/v3/staticmap?" +
-      "location=104.06667,30.66667&" +
-      "scale=2&" +
-      "zoom=14&" +
-      "size=" + w + "*" + h + "&" +
-      "traffic=1&" +
-      "markers=mid,,A:116.481485,39.990464&" +
-      "key=ee95e52bf08006f63fd29bcfbcf21df0";
+  ngOnInit() {
+
+    this.opts = {
+      center: {
+         longitude: 121.506191,
+         latitude: 31.245554
+      },
+      zoom: 17,
+      markers: [{
+         longitude: 121.506191,
+         latitude: 31.245554
+      }],
+      geolocationCtrl: {
+         /*定位的小图标*/
+         anchor: ControlAnchor.BMAP_ANCHOR_BOTTOM_LEFT
+      },
+      scaleCtrl: {
+         anchor: ControlAnchor.BMAP_ANCHOR_BOTTOM_LEFT
+      },
+      overviewCtrl: {
+         isOpen: false
+      },
+      navCtrl: {
+          type: NavigationControlType.BMAP_NAVIGATION_CONTROL_LARGE
+      }
+    };
+
+    this.offlineOpts = {
+       retryInterval: 5000,
+       txt: 'NO-NETWORK'
+    };
+  }
+
+  loadMap(map: any) {
+    console.log('map instance here', map);
+  }
+
+  clickMarker(event){
+    console.log('The clicked marker is', event);
   }
 }

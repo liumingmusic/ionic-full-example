@@ -10,7 +10,14 @@
     </ion-title>
   </ion-navbar>
 </ion-header>
-
 <ion-content class="setting">
-  <img src="{{map.face}}" title="地图" alt="地图" class="map"/>
+  <baidu-map 
+    BaiduMap 
+    style="width: 100%;height: 100%;display: block;"  
+    ak="HgsieM7NVT2p0UaSGLyrE0DgdodA4kPo" 
+    [options]="opts" 
+    [offline]="offlineOpts" 
+    (onMapLoaded)="loadMap($event)" 
+    (onMarkerClicked)="clickMarker($event)">
+  </baidu-map>
 </ion-content>
