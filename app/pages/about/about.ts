@@ -54,6 +54,17 @@ export class AboutPage {
     }
   }
 
+  doInfinite(infiniteScroll) {
+    setTimeout(() => {
+      this.list = this.list.concat(this.getData());
+      if(this.list.length >= 100){
+        infiniteScroll.enable(false);
+      }else{
+        infiniteScroll.complete();
+      }
+    }, 3000);
+  }
+
   //获取模拟数据信息
   getData() {
     let list = [];
@@ -115,7 +126,47 @@ export class AboutPage {
     });
     list.push({
       id: '8',
-      img: 'images/c2.jpg',
+      img: 'images/8.png',
+      name: '王子奇',
+      description: '我要好好学习ionic',
+      date: '上午8:30',
+      tel: '13468833686'
+    });
+    list.push({
+      id: '9',
+      img: 'images/9.png',
+      name: '和震撼',
+      description: 'typexcript',
+      date: '上午8:30',
+      tel: '13468833686'
+    });
+    list.push({
+      id: '10',
+      img: 'images/10.png',
+      name: '不是气',
+      description: 'anualrjs',
+      date: '上午8:30',
+      tel: '13468833686'
+    });
+    list.push({
+      id: '11',
+      img: 'images/11.png',
+      name: '王子奇',
+      description: '我要好好学习ionic',
+      date: '上午8:30',
+      tel: '13468833686'
+    });
+    list.push({
+      id: '12',
+      img: 'images/13.png',
+      name: '王子奇',
+      description: '我要好好学习ionic',
+      date: '上午8:30',
+      tel: '13468833686'
+    });
+    list.push({
+      id: '13',
+      img: 'images/13.png',
       name: '王子奇',
       description: '我要好好学习ionic',
       date: '上午8:30',

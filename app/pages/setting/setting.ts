@@ -20,13 +20,14 @@ export class SettingPage implements OnInit{
 
     this.opts = {
       center: {
-         longitude: 121.506191,
-         latitude: 31.245554
+         longitude: 104.506191,
+         latitude: 30.245554
       },
       zoom: 17,
+      city: "成都",
       markers: [{
-         longitude: 121.506191,
-         latitude: 31.245554
+         longitude: 104.506191,
+         latitude: 30.245554
       }],
       geolocationCtrl: {
          /*定位的小图标*/
