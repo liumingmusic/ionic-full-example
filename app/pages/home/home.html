@@ -9,6 +9,18 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding class="home">
+
+  <!--下拉刷新-->
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-down"
+      pullingText="下拉刷新"
+      refreshingSpinner="circles"
+      refreshingText="正在加载数据...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!--列表展示-->
   <ion-card *ngFor="let item of list">
     <img src="{{item.img}}" (click)="goDescription(item)"/>
     <ion-card-content>

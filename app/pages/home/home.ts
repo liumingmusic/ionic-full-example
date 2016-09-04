@@ -15,8 +15,16 @@ export class HomePage {
   //进入信息的详细界面
   goDescription(obj) {
     this.navController.push(DescriptionPage, {params: obj});
-    //this.navController.setPages([{page: DescriptionPage, params: {params: obj}}]);
-    //this.navController.insert(1, DescriptionPage, {params: obj});
+  }
+
+  //下拉刷新
+  doRefresh(refresher) {
+    setTimeout(() => {
+      this.list = this.list.concat(this.getData()).sort(function(){
+        return Math.random()>.5 ? -1 : 1;
+      });
+      refresher.complete();
+    }, 5000);
   }
 
   //获取数据
