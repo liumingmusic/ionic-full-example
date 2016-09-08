@@ -3,7 +3,7 @@
  */
 import {Component} from '@angular/core';
 import {NavController, Loading, Alert, Toast, Modal} from 'ionic-angular';
-import {ContactPage} from '../contact/contact';
+import {LoginPage} from '../login/login';
 
 @Component({
   templateUrl: 'build/pages/usercenter/usercenter.html'
@@ -22,7 +22,7 @@ export class UserCenter {
       this.user.imageFace = localStorage.getItem("imageFace");
     } else {
       //没有登陆,打开登陆界面
-      let modal = Modal.create(ContactPage);
+      let modal = Modal.create(LoginPage);
       modal.onDismiss(data => {
         this.user.imageFace = data;
       });
@@ -34,7 +34,7 @@ export class UserCenter {
   doExit() {
     localStorage.clear();
     //没有登陆,打开登陆界面
-    let modal = Modal.create(ContactPage);
+    let modal = Modal.create(LoginPage);
     modal.onDismiss(data => {
       this.user.imageFace = data;
     });

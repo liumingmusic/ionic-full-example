@@ -8,7 +8,6 @@ import {DescriptionPage} from '../description/description';
 export class HomePage {
   params = [];
   public list = this.getData();
-
   constructor(private navController:NavController, private menu:MenuController) {
   }
 

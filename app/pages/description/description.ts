@@ -2,7 +2,7 @@
  * Created by liumingming on 16/7/24.
  */
 import {Component} from '@angular/core';
-import {NavController,NavParams} from 'ionic-angular';
+import {NavController,NavParams, ViewController} from 'ionic-angular';
 import {Camera} from 'ionic-native';
 
 @Component({
@@ -17,7 +17,7 @@ export class DescriptionPage {
   item;
 
   //初始化加载方法
-  constructor(private navController:NavController, private navParams:NavParams) {
+  constructor(private navController:NavController, private navParams:NavParams, private viewCtrl:ViewController) {
     //之前页面传过来的参数
     this.item = navParams.data.params;
   }
@@ -36,4 +36,9 @@ export class DescriptionPage {
       console.log(err);
     });
   }
+
+  ionViewWillEnter() {
+    this.viewCtrl.setBackButtonText('返回');
+  }
+
 }

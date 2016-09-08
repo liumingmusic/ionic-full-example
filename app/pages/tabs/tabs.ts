@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {HomePage} from '../home/home';
-import {AboutPage} from '../about/about';
-import {ContactPage} from '../contact/contact';
-import {SettingPage} from '../setting/setting';
+import {AboutPage} from '../contact/contact';
+import {LoginPage} from '../login/login';
+import {SettingPage} from '../map/map';
 import {UserCenter} from '../usercenter/usercenter';
 
 import {Tabs} from 'ionic-angular';
@@ -15,6 +15,8 @@ import {Injectable,ViewChild} from '@angular/core';
 export class TabsPage {
 
   @ViewChild('mainTabs') tabRef:Tabs;
+
+  private tabBadge = 2;
 
   private tab1Root:any;
   private tab2Root:any;
@@ -33,6 +35,14 @@ export class TabsPage {
       this.tabRef.select(0);
     } else {
       this.tabRef.select(2);
+    }
+  }
+
+  onChange(ev){
+    console.log(this.tabRef);
+    var index = ev.index;
+    if(index > 0){
+      this.tabBadge = 0;
     }
   }
 

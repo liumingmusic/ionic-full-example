@@ -1,28 +1,36 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>
-      登录
-    </ion-title>
-  </ion-navbar>
+    <ion-navbar>
+        <ion-buttons start>
+            <button menuToggle>
+                <ion-icon name="menu"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+            联系方式
+        </ion-title>
+    </ion-navbar>
 </ion-header>
-
-<ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input type="text" [(ngModel)]="user.username"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="user.password"></ion-input>
-    </ion-item>
-  </ion-list>
-  <div padding>
-    <button block (click)="doLogin()">登录</button>
-    <ion-row>
-      <ion-col class="button-align-right">
-        <button outline small (click)="doRegister()">还没有账号?请注册!</button>
-      </ion-col>
-    </ion-row>
-  </div>
+<ion-content class="about">
+    <!-- 列表展示 -->
+    <ion-list>
+        <ion-item-sliding *ngFor="let item of list">
+            <ion-item (click)="openMsg($event,item)">
+                <ion-avatar item-left>
+                    <img src="{{item.img}}">
+                </ion-avatar>
+                <h2>{{item.name}}</h2>
+                <p>{{item.description}}<span class="float-right">{{item.date}}</span></p>
+            </ion-item>
+            <ion-item-options side="right">
+                <button danger (click)="delUser($event,item.id)">
+                    删除
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
+    <!-- 下拉刷新 -->
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+        <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="正在加载数据...">
+        </ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 </ion-content>

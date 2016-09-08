@@ -4,7 +4,7 @@ import {Http} from '@angular/http';
 import {BaiduMap, OfflineOptions, ControlAnchor, NavigationControlType} from 'angular2-baidu-map';
 
 @Component({
-    templateUrl: 'build/pages/setting/setting.html',
+    templateUrl: 'build/pages/map/map.html',
     directives: [BaiduMap]
 })
 export class SettingPage implements OnInit{
